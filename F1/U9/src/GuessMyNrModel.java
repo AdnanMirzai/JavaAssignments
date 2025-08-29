@@ -8,11 +8,10 @@ public class GuessMyNrModel {
     private Random rand = new Random();
 
     public GuessMyNrModel(int upperLimit) {
-        this.upperLimit = upperLimit+1;
-        initGame();
+        this.upperLimit = upperLimit;
     }
 
-    private void initGame() {
+    public void initGame() {
         number = rand.nextInt(this.upperLimit);
         guess = 0;
         nrOfGuesses = 0;
@@ -20,8 +19,12 @@ public class GuessMyNrModel {
 
     public int getNrOfGuesses() {return nrOfGuesses;}
     public int getUpperLimit() {return upperLimit;}
+    public int getSecret() {return number;}
 
-    public void setGuess(int guess) {this.guess = guess;}
+    public void setGuess(int guess) {
+        this.guess = guess;
+        nrOfGuesses++;
+    }
 
     public int compareGuess() {
         //noinspection UseCompareMethod
