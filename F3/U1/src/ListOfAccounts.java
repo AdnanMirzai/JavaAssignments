@@ -1,25 +1,20 @@
-public class ListOfAccounts {
+import java.util.ArrayList;
 
-    private Account[] theAccounts;
-    private int noOfAccs;
+public class ListOfAccounts {
+    ArrayList<Account> theAccounts;
 
     public ListOfAccounts() {
-        theAccounts = new Account[100];
-        noOfAccs = 0;
+        theAccounts = new ArrayList<>();
     }
 
     public void addAccount(Account a) {
-        if (noOfAccs >= theAccounts.length) {
-            this.resize();
-        }
-        theAccounts[noOfAccs] = a;
-        noOfAccs++;
+        theAccounts.add(a);
     }
 
     public double getTotalBalance() {
         double total = 0;
-        for (int i = 0; i < noOfAccs; i++) {
-            total = total + theAccounts[i].getBalance();
+        for (Account theAccount : theAccounts) {
+            total = total + theAccount.getBalance();
         }
         return total;
     }
@@ -27,10 +22,10 @@ public class ListOfAccounts {
     public Account findAccount(String name) {
         Account a = null;
         String foundName;
-        for (int i = 0; i < noOfAccs; i++) {
-            foundName = theAccounts[i].getName();
+        for (Account theAccount : theAccounts) {
+            foundName = theAccount.getName();
             if (foundName.equals(name)) { // Not ==!
-                a = theAccounts[i];
+                a = theAccount;
                 break;
             }
         }
@@ -38,9 +33,9 @@ public class ListOfAccounts {
     }
 
     public Account[] getTheAccounts() {
-        Account[] copy = new Account[noOfAccs];
-        for (int i = 0; i < noOfAccs; i++) {
-            copy[i] = theAccounts[i];
+        Account[] copy = new Account[theAccounts.size()];
+        for (int i = 0; i < theAccounts.size(); i++) {
+            copy[i] = theAccounts.get(i);
         }
         return copy;
     }
@@ -50,15 +45,9 @@ public class ListOfAccounts {
         StringBuilder info = new StringBuilder();
         info.append("The accounts\n");
         info.append("============\n");
-        for (int i = 0; i < noOfAccs; i++) {
-            info.append(theAccounts[i].toString()).append("\n");
+        for (Account theAccount : theAccounts) {
+            info.append(theAccount.toString()).append("\n");
         }
         return info.toString();
-    }
-
-    private void resize() {
-        Account[] temp = new Account[theAccounts.length * 2];
-        System.arraycopy(theAccounts, 0, temp, 0, theAccounts.length);
-        theAccounts = temp;
     }
 }
