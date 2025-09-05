@@ -13,7 +13,7 @@ public class GuessMainIO {
             do {
                 System.out.println("Make a guess: [1 - " + guessModel.getUpperLimit() + "]");
                 guess = scan.nextInt();
-                scan.nextLine();
+                scan.nextLine(); //important, scan.NextInt leaves /n char! 
                 guessModel.setGuess(guess);
                 System.out.println("Your guess is " + guessModel.compareGuessToStr());
                 System.out.println("Number of guesses: " + guessModel.getNrOfGuesses());
