@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Deck {
     private ArrayList<Card> deck;
@@ -15,6 +16,10 @@ public class Deck {
             }
         }
         fill(allCards);
+    }
+
+    public void shuffleCards() {
+        Collections.shuffle(deck);
     }
 
     private void fill(Card[] cards) {
