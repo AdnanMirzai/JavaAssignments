@@ -1,7 +1,6 @@
 public class ListOfAccountsMain {
 
     public static void main(String[] args) {
-
         ListOfAccounts list = new ListOfAccounts();
 
         Account a = new Account("Ann");
