@@ -16,4 +16,9 @@ public class User {
     public String getName() { return name; }
     public String getEPost() { return ePost; }
     public String getPassword() { return password; }
+
+    @Override
+    public String toString() {
+        return "Name: " + this.name + "E-post: " + this.ePost;
+    }
 }
