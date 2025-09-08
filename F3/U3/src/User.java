@@ -19,6 +19,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "Name: " + this.name + "E-post: " + this.ePost;
+        return name + ", " + ePost + ", pwd: " + password;
     }
 }
