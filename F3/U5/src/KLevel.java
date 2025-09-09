@@ -1,0 +1,1 @@
+public enum KLevel { BEGINNER, EASY, SKILLED, ADVANCED }
