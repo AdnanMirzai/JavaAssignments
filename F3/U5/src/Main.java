@@ -23,7 +23,7 @@ public class Main {
         System.out.println(manager.toString());
 
         manager.addLoan(anders, k1, LocalDate.now());
-        manager.addLoan(adnan, k2, LocalDate.now());
+        //manager.addLoan(adnan, k2, LocalDate.now());
         System.out.println(manager.toString());
 
 
@@ -36,6 +36,5 @@ public class Main {
         manager.addKayak(k3);
         List<Kayak> allKayaks = manager.getKayaks();
         System.out.println("ALL KAYAKS: " + allKayaks.toString());
-
     }
 }
