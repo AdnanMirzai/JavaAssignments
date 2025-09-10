@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 
-public class LoanManager {
+public class LoanManager implements ILoanManager {
     private ArrayList<Kayak> kayaks;
     private ArrayList<Loan> loans;
 
@@ -14,17 +14,21 @@ public class LoanManager {
     public List<Kayak> getKayaks() { return new ArrayList<>(kayaks); }
     public List<Loan> getLoans() { return new ArrayList<>(loans); }
 
-    void addKayak(Kayak kayak) {
+    public void addKayak(Kayak kayak) {
         if (!kayaks.contains(kayak)) {
             kayaks.add(kayak);
         }
     }
-    void addLoan(Member borrower, Kayak kayak, LocalDate loanDate) {
-
+    public void addLoan(Member borrower, Kayak kayak, LocalDate loanDate) {
+        for(Loan loan : loans) {
+            if(loan.kayak().equals(kayak) && loan.loanDate().equals(loanDate)) {
+                throw new IllegalLoanException(kayak.getModel() + ", " + loanDate);
+            }
+        }
         loans.add(new Loan(kayak, borrower, loanDate));
     }
 
-    List<Loan> getLoansFor(Kayak kayak) {
+    public List<Loan> getLoansFor(Kayak kayak) {
         List<Loan> kayakLoans = new ArrayList<>();
         for (Loan loan : loans) {
             if (loan.kayak().equals(kayak))
@@ -33,14 +37,30 @@ public class LoanManager {
         return kayakLoans;
     }
 
-    List<Kayak> getAvailableKayaks(LocalDate targetDate) {
+    public List<Kayak> getAvailableKayaks(LocalDate targetDate) {
         List<Kayak> availableKayaks = new ArrayList<>();
-        for(Loan loan : loans) {
-            if(!loan.localDate().equals(targetDate)) {
-                availableKayaks.add(loan.kayak());
+        for(int i=0; i<kayaks.size(); i++) {
+            boolean taken = false;
+            Kayak kayakTemp;
+            kayakTemp = kayaks.get(i);
+            for(int j=0; j<loans.size()-1; j++) {
+                Loan loanTemp;
+                loanTemp = loans.get(i);
+                if(loanTemp.kayak().equals(kayakTemp) && loanTemp.loanDate().isEqual(targetDate)) {
+                    taken = true;
+                    break;
+                }
+            }
+            if(!taken) {
+                availableKayaks.add(kayakTemp);
             }
         }
+
         return availableKayaks;
     }
 
+    @Override
+    public String toString() {
+        return "LoanManager: [kayaks: " + kayaks.size() + ", loans: " + loans.size() + "]";
+    }
 }

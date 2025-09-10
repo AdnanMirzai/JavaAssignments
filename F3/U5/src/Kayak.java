@@ -20,6 +20,6 @@ public class Kayak {
 
     @Override
     public String toString() {
-        return "Kayak: [Model: " + model + "Level: " + level + "Number: " + number + "]";
+        return "Kayak[Model: " + model + ", Level: " + level + ", Number: " + number + "]";
     }
 }
