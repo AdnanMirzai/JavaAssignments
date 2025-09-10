@@ -19,6 +19,7 @@ public class LoanManager implements ILoanManager {
             kayaks.add(kayak);
         }
     }
+
     public void addLoan(Member borrower, Kayak kayak, LocalDate loanDate) {
         for(Loan loan : loans) {
             if(loan.kayak().equals(kayak) && loan.loanDate().equals(loanDate)) {
@@ -55,7 +56,6 @@ public class LoanManager implements ILoanManager {
                 availableKayaks.add(kayakTemp);
             }
         }
-
         return availableKayaks;
     }
 
