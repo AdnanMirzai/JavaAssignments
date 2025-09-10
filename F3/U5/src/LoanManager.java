@@ -45,7 +45,7 @@ public class LoanManager implements ILoanManager {
             kayakTemp = kayaks.get(i);
             for(int j=0; j<loans.size()-1; j++) {
                 Loan loanTemp;
-                loanTemp = loans.get(i);
+                loanTemp = loans.get(j);
                 if(loanTemp.kayak().equals(kayakTemp) && loanTemp.loanDate().isEqual(targetDate)) {
                     taken = true;
                     break;
