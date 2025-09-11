@@ -31,7 +31,7 @@ public class testShapeNCircle {
         System.out.println(shapes[2].toString());
 
         Circle b = (Circle) shapes[0];
-        System.out.println(b.getRadius()); //DOWNCAST from general -> special
+        System.out.println(b.getRadius()); //DOWNCAST from general -> special, now we can access the Circle radius function
 
     }
 }
