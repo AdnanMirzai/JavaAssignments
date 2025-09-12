@@ -19,7 +19,7 @@ public class Card implements Comparable<Card> {
 	public int getSuitValue() { return suit.ordinal(); }  // default values, 0, 1, 2, 3
 
     @Override
-    public int compareTo(Card other) {
+    public int compareTo(Card other) { //Enums are ranked, use ordinal instead of comparing!
         int result = this.suit.ordinal() - other.getSuit().ordinal();
         if (result == 0) {
             result = this.rank.ordinal() - other.getRank().ordinal();
