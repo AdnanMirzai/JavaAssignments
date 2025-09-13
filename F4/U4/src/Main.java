@@ -32,7 +32,7 @@ public class Main {
         for(Card c:cards) {
             i++;
             builder.append(c.toShortString()).append(' ');
-            if(i==13) {
+            if(i==Rank.values().length) {
                 builder.append("\n");
                 i=0;
             }
