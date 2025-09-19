@@ -1,5 +1,3 @@
-package money;
-
 /**
  * Represents an amount of money, represented in a specific currency.
  * Instances of this class are <em>immutable</em>.

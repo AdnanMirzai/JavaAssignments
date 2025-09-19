@@ -1,5 +1,3 @@
-package money;
-
 public enum Currency {
 
     EUR("euro", 1.00),
@@ -7,13 +5,9 @@ public enum Currency {
     USD("dollar", 0.91),
     NOK("kronor", 0.092);
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public double getRate() {
-        return rate;
-    }
+    public double getRate() { return rate; }
 
     private String name;
     private double rate; // rate vs EUR
