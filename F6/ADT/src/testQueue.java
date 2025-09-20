@@ -1,4 +1,4 @@
-public class test {
+public class testQueue {
     public static void main(String[] args) {
 
         GenericQueue <String> q = new GenericQueue<>(4);
