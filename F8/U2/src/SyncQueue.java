@@ -7,7 +7,6 @@ public class SyncQueue<T> {
     private List<T> messages;
 
     public SyncQueue() {
-
         messages = new LinkedList<>();
     }
 
@@ -25,6 +24,7 @@ public class SyncQueue<T> {
             wait();
         }
         T temp = messages.getFirst();
+        messages.removeFirst();
         notifyAll();
         return temp;
     }
