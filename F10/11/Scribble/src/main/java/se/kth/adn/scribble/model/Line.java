@@ -1,4 +1,4 @@
-package se.kth.anderslm.scribble.model;
+package se.kth.adn.scribble.model;
 
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;

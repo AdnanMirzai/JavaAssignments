@@ -1,19 +1,13 @@
-/**
- *
- * @author Anders Lindström, anderslm@kth.se
- */
-package se.kth.anderslm.scribble.model;
+package se.kth.adn.scribble.model;
 
 import javafx.scene.canvas.GraphicsContext;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Anders Lindström, anderslm@kth.se
- */
 public class Lines {
+    private final ArrayList<Line> lines;
+
 
     public Lines() {
         lines = new ArrayList<>();
@@ -34,7 +28,5 @@ public class Lines {
     public List<Line> getLines() {
         return (ArrayList<Line>) lines.clone();
     }
-    
-    private final ArrayList<Line> lines;
 }
 
