@@ -1,7 +1,5 @@
 package se.kth.adn.scribble.model;
 
-import javafx.scene.canvas.GraphicsContext;
-
 import java.util.ArrayList;
 import java.util.List;
 

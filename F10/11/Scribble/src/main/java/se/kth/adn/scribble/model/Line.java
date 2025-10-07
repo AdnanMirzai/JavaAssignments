@@ -1,7 +1,6 @@
 package se.kth.adn.scribble.model;
 
 import javafx.geometry.Point2D;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 /**
@@ -9,6 +8,8 @@ import javafx.scene.paint.Color;
  * @author anderslm@kth.se
  */
 public class Line {
+    private Point2D start, end;
+    private Color color;
     
     public Line(Point2D start, Point2D end, Color color) {
         this.start = start;
@@ -31,7 +32,4 @@ public class Line {
     public String toString() {
         return start.toString() + " -> " + end.toString();
     }
-    
-    private Point2D start, end;
-    private Color color;
 }
